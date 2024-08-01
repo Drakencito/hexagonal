@@ -1,3 +1,4 @@
+// src/usuarios/infraestructure/middleware/authMiddleware.ts
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { MongoUserRepository } from '../repositories/MongoUserRepository';
@@ -15,7 +16,6 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string };
     req.userId = decoded.userId;
 
-    // Fetch the user role from the database
     const user = await userRepository.getById(req.userId);
     if (!user) {
       return res.status(401).json({ message: 'Invalid token.' });

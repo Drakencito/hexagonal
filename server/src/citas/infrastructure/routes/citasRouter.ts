@@ -1,11 +1,17 @@
-// src/routes/appointmentRouter.ts
 import express from 'express';
-import { createAppointment, getAppointments, updateAppointment, deleteAppointment } from '../controllers/appointmentController';
+import { addAppointment } from '../controllers/AddAppointmentController';
+import { deleteAppointment } from '../controllers/DeleteAppointmentController';
+import { getAllAppointments } from '../controllers/GetAllAppointmentsController';
+import { getAppointmentById } from '../controllers/GetAppointmentByIdController';
+import { updateAppointment } from '../controllers/UpdateAppointmentController';
 import { authMiddleware } from '../../../usuarios/infraestructure/middleware/authMiddleware';
 
 export const appointmentRouter = express.Router();
 
-appointmentRouter.post('/create', authMiddleware, createAppointment);
-appointmentRouter.get('/list', authMiddleware, getAppointments);
-appointmentRouter.put('/update/:id', authMiddleware, updateAppointment);
-appointmentRouter.delete('/delete/:id', authMiddleware, deleteAppointment);
+//appointmentRouter.use(authMiddleware);
+
+appointmentRouter.post('/appointments', addAppointment);
+appointmentRouter.delete('/appointments/:id', deleteAppointment);
+appointmentRouter.get('/appointments', getAllAppointments);
+appointmentRouter.get('/appointments/:id', getAppointmentById);
+appointmentRouter.put('/appointments/:id', updateAppointment);

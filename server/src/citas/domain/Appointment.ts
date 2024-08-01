@@ -1,9 +1,15 @@
-// src/domain/Appointment.ts
 export class Appointment {
     constructor(
         readonly id: string,
+        readonly patientName: string,
         readonly date: Date,
-        readonly time: string,
-        readonly userId: string // Updated to use userId
+        readonly time: string 
     ) {}
+}
+
+export interface IAppointment {
+    id: string;
+    patientName: string;
+    date: Date;
+    time: string;
 }

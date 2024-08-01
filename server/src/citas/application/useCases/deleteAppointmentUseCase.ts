@@ -1,4 +1,3 @@
-// src/application/useCases/DeleteAppointmentUseCase.ts
 import { IAppointmentRepository } from '../../domain/IAppointmentRepository';
 
 export class DeleteAppointmentUseCase {

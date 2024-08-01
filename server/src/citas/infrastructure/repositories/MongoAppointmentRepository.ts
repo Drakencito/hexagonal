@@ -1,12 +1,11 @@
-// src/infrastructure/repositories/MongoAppointmentRepository.ts
 import mongoose from 'mongoose';
-import { IAppointmentRepository } from '../../domain/IAppointmentRepository';
 import { Appointment } from '../../domain/Appointment';
+import { IAppointmentRepository } from '../../domain/IAppointmentRepository';
 
 const AppointmentSchema = new mongoose.Schema({
+    patientName: { type: String, required: true },
     date: { type: Date, required: true },
-    time: { type: String, required: true },
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+    time: { type: String, required: true }
 }, {
     timestamps: true,
 });
@@ -19,20 +18,16 @@ export class MongoAppointmentRepository implements IAppointmentRepository {
         await appointmentModel.save();
     }
 
-    async getById(id: string): Promise<Appointment | null> {
-        return await AppointmentModel.findById(id).populate('userId').lean();
-    }
-
-    async getAllByUserId(userId: string): Promise<Appointment[]> {
-        return await AppointmentModel.find({ userId }).sort({ date: 1, time: 1 }).populate('userId').lean();
+    async delete(id: string): Promise<void> {
+        await AppointmentModel.findByIdAndDelete(id);
     }
 
     async getAll(): Promise<Appointment[]> {
-        return await AppointmentModel.find().sort({ date: 1, time: 1 }).populate('userId').lean();
+        return await AppointmentModel.find().lean();
     }
 
-    async delete(id: string): Promise<void> {
-        await AppointmentModel.findByIdAndDelete(id);
+    async getById(id: string): Promise<Appointment | null> {
+        return await AppointmentModel.findById(id).lean();
     }
 
     async update(appointment: Appointment): Promise<void> {

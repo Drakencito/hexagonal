@@ -1,4 +1,4 @@
-// src/infrastructure/repositories/MongoUserRepository.ts
+
 import mongoose from 'mongoose';
 import { IUserRepository } from '../../domain/IUserRepository';
 import { User } from '../../domain/User';

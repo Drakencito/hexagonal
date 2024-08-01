@@ -1,5 +1,5 @@
 import express from 'express';
-import { addPatient } from '../controllers/AddPatientController';
+import { addPatient } from '../controllers/AddpatientController';
 import { deletePatient } from '../controllers/DeletePatientController';
 import { getAllPatients } from '../controllers/GetAllPatientsController';
 import { getPatientById } from '../controllers/GetPatientByIdController';

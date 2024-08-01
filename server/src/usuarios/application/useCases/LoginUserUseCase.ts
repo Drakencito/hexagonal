@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { User } from '../../domain/User';
 import { IUserRepository } from '../../domain/IUserRepository';
 
-const secret = 'your_jwt_secret'; // Use a secure secret in production
+const secret = 'jwt_secret';
 
 export class LoginUserUseCase {
     constructor(private repository: IUserRepository) {}

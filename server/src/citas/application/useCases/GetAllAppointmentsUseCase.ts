@@ -1,10 +1,10 @@
 import { Appointment } from '../../domain/Appointment';
 import { IAppointmentRepository } from '../../domain/IAppointmentRepository';
 
-export class UpdateAppointmentUseCase {
+export class GetAllAppointmentsUseCase {
     constructor(private repository: IAppointmentRepository) {}
 
-    async execute(data: Appointment): Promise<void> {
-        await this.repository.update(data);
+    async execute(): Promise<Appointment[]> {
+        return await this.repository.getAll();
     }
 }

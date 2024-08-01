@@ -1,19 +1,10 @@
-export class User{
+export class User {
     constructor(
-        readonly id : String,
-	    readonly phone: String ,
-	    readonly email: String,
-	    readonly password: String ,
-	    readonly role: String
-
-    ){}
-}
-
-
-export interface IUser{
-    id : String,
-	phone: String ,
-	email: String,
-	password: String ,
-	role: String
+        readonly id: string,
+        readonly name: string, 
+        readonly email: string, 
+        readonly password: string, 
+        readonly phoneNumber: string,
+        readonly role: string
+    ) {}
 }

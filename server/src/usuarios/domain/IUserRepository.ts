@@ -1,7 +1,7 @@
 import { User } from './User';
 
 export interface IUserRepository {
-  register(user: User): Promise<void>;
-  login(email: string, password: string): Promise<User | null>;
-  findByEmail(email: string): Promise<User | null>;
+  add(user: User): Promise<void>;
+  getByEmail(email: string): Promise<User | null>;
+  getById(id: string): Promise<User | null>;
 }

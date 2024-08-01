@@ -1,29 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ESNext",                      /* versión de ECMAScript objetivo */
-    "module": "commonjs",                    /* sistema de módulos */
-    "strict": true,                          /* habilitar todas las comprobaciones estrictas de TypeScript */
-    "esModuleInterop": true,                 /* interoperabilidad entre espacios de nombres de módulos */
-    "skipLibCheck": true,                    /* omitir la comprobación de bibliotecas de definiciones de TypeScript */
-    "forceConsistentCasingInFileNames": true,/* forzar consistencia de mayúsculas y minúsculas en los nombres de archivo */
-    "outDir": "./dist",                      /* directorio de salida para los archivos compilados */
-    "rootDir": "./src",                      /* directorio raíz de entrada de los archivos TypeScript */
-    "resolveJsonModule": true,               /* habilitar la resolución de módulos JSON */
-    "baseUrl": "./",                         /* base URL para las rutas relativas en el proyecto */
+    "target": "ESNext",                      /* Versión de ECMAScript objetivo */
+    "module": "commonjs",                    /* Sistema de módulos */
+    "strict": true,                          /* Habilitar todas las comprobaciones estrictas de TypeScript */
+    "esModuleInterop": true,                 /* Interoperabilidad entre espacios de nombres de módulos */
+    "skipLibCheck": true,                    /* Omitir la comprobación de bibliotecas de definiciones de TypeScript */
+    "forceConsistentCasingInFileNames": true,/* Forzar consistencia de mayúsculas y minúsculas en los nombres de archivo */
+    "outDir": "./dist",                      /* Directorio de salida para los archivos compilados */
+    "rootDir": "./src",                      /* Directorio raíz de entrada de los archivos TypeScript */
+    "resolveJsonModule": true,               /* Habilitar la resolución de módulos JSON */
+    "baseUrl": "./",                         /* Base URL para las rutas relativas en el proyecto */
     "paths": {
       "*": [
         "node_modules/*"
-      ],
-      "typeRoots": [
+      ]
+    },
+    "typeRoots": [
       "./node_modules/@types",
-      "./usuarios/infrastructure/types"
-    ]
-    }
+      "./src/types"
+    ],
+    "types": ["node", "express"]
   },
   "include": [
-    "src/server.ts"                           /* archivos que deben ser incluidos en la compilación */
+    "src/**/*.ts",                           /* Archivos que deben ser incluidos en la compilación */
+    "src/types/custom.d.ts"                  /* Asegura que el archivo de tipos personalizado esté incluido */
   ],
   "exclude": [
-    "node_modules"                          /* archivos que deben ser excluidos de la compilación */
+    "node_modules"                           /* Archivos que deben ser excluidos de la compilación */
   ]
 }

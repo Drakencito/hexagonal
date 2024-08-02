@@ -3,7 +3,8 @@ export class Appointment {
         readonly id: string,
         readonly patientName: string,
         readonly date: Date,
-        readonly time: string 
+        readonly time: string,
+      
     ) {}
 }
 
@@ -12,4 +13,5 @@ export interface IAppointment {
     patientName: string;
     date: Date;
     time: string;
+  
 }

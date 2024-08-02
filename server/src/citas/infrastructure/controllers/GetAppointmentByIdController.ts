@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { GetAppointmentByIdUseCase } from '../../application/useCases/GetAppointmentsBYIdUseCase';
+import { GetAppointmentByIdUseCase } from '../../application/useCases/GetAppointmentsByIdUseCase';
 import { MongoAppointmentRepository } from '../repositories/MongoAppointmentRepository';
 
 const repository = new MongoAppointmentRepository();

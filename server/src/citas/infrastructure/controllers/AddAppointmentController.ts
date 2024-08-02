@@ -7,7 +7,7 @@ const addAppointmentUseCase = new AddAppointmentUseCase(repository);
 
 export const addAppointment = async (req: Request, res: Response) => {
     const { patientName, date, time } = req.body;
-
+    
     try {
         await addAppointmentUseCase.execute({ patientName, date, time });
         res.status(201).json({ message: 'Appointment added successfully' });

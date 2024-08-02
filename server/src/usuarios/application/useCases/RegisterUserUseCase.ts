@@ -6,6 +6,7 @@ export class RegisterUserUseCase {
     constructor(private repository: IUserRepository) {}
 
     async execute(data: Omit<User, 'id'>): Promise<void> {
+        console.log("xd")
         const hashedPassword = await bcrypt.hash(data.password, 10);
         const newUser = new User('', data.name, data.email, hashedPassword, data.phoneNumber, data.role);
         await this.repository.add(newUser);

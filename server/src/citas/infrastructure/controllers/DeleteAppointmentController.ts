@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { DeleteAppointmentUseCase } from '../../application/useCases/deleteAppointmentUseCase';
+import { DeleteAppointmentUseCase } from '../../application/useCases/DeleteAppointmentUseCase';
 import { MongoAppointmentRepository } from '../repositories/MongoAppointmentRepository';
 
 const repository = new MongoAppointmentRepository();

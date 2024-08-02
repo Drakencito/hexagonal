@@ -16,7 +16,7 @@ export class LoginUserUseCase {
         if (!validPassword) throw new Error('Invalid password');
 
         const token = jwt.sign({ id: user.id, email: user.email, role: user.role, number: user.phoneNumber }, secret, { expiresIn: '1h' });
-
+        
         return token;
     }
 }

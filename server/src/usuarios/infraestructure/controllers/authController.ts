@@ -13,7 +13,7 @@ export const registerUser = async (req: Request, res: Response) => {
     try {
         
         await registerUserUseCase.execute({ name, email, password, phoneNumber, role });
-        res.status(201).json({ message: 'User registered successfully' });
+        return res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         res.status(500).json({ error: error });
     }
@@ -24,7 +24,10 @@ export const loginUser = async (req: Request, res: Response) => {
 
     try {
         const token = await loginUserUseCase.execute(email, password);
-        res.status(200).json({ message: 'Login successful', token });
+
+        res.setHeader("Set-Cookie", token);
+        res.setHeader("Authorization", token);
+        return res.status(200).json({ message: 'Login successful', token });
     } catch (error) {
         res.status(500).json({ error: error });
     }
